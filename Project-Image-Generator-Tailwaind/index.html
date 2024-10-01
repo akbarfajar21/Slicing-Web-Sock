@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./dist/output.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="icon" href="icon.png" type="image/png">
+  <title>Website Generator</title>
+  <style class="max-lg:text-center">
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+    #generate-image {
+        background: linear-gradient(
+          rgba(0, 0, 0, 0.4), 
+          rgba(0, 0, 0, 0.4)
+        ), url('https://images.unsplash.com/photo-1714718085992-07ff9ec410eb?crop=entropy&cs=srgb&fm=jpg&ixid=M3w2MDk1NDB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTYzNjk1NDB8&ixlib=rb-4.0.3&q=85'); 
+    }
+    * {
+        font-family: "Poppins", sans-serif;
+    }
+    .custom-alert {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: none;
+        z-index: 1000;
+    }
+    .custom-alert h2 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: #333;
+    }
+    .custom-alert p {
+        margin: 10px 0;
+        color: #666;
+    }
+    .custom-alert button {
+        background: #1e3a8a;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .custom-alert button:hover {
+        background: #374fcf;
+    }
+    .modal {
+      display: none; 
+      position: fixed; 
+      z-index: 1000; 
+      left: 0; 
+      top: 0; 
+      width: 100%; 
+      height: 100%; 
+      overflow: auto; 
+      background-color: rgba(0, 0, 0, 0.8); 
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      position: relative;
+      margin: auto;
+      padding: 0;
+      width: 80%;
+      max-width: 700px;
+      text-align: center;
+    }
+
+    .modal-content img {
+      border: 5px solid white; 
+      border-radius: 10px; 
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      color: white;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+      color: #999;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .modal-buttons {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .modal-buttons a, .modal-buttons button {
+      background: #1e3a8a;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .modal-buttons a:hover, .modal-buttons button:hover {
+      background: #374fcf;
+    }
+
+    /* Media query for responsive view */
+    @media (max-width: 768px) {
+      .modal-content {
+        width: 90%;
+      }
+      .close {
+        top: 10px;
+        right: 10px;
+      }
+      .modal-buttons {
+        flex-direction: column;
+        gap: 5px;
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section id="generate-image" class="w-full h-[500px] bg-no-repeat bg-cover max-lg:px-4 max-lg-h-[600px]">
+    <div class="flex items-center justify-center flex-col h-full text-white">
+        <h2 class="text-4xl font-bold max-lg:text-center max-lg:text-3xl">Web Image Generator</h2>
+        <p class="text-xl mt-2 max-lg:text-center max-lg:text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum blanditiis suscipit consequatur, distinctio molestias nobis. Hic similique quibusdam ea inventore!</p>
+        <form class="text-black mt-10 bg-white p-2 rounded-full w-[600px] flex gap-2 text-lg max-lg:w-full" id="form-img-generator">
+            <input type="text" id="image-prompt" class="w-full focus:outline-none px-2 bg-transparent" autocomplete="off">
+            <select id="img-quantity" class="focus:outline-none">
+                <option value="5">5 Gambar</option>
+                <option value="10">10 Gambar</option>
+                <option value="15">15 Gambar</option>
+                <option value="20">20 Gambar</option>
+            </select>
+            <button type="submit" class="bg-purple-800 text-white py-2 px-4 rounded-full">
+              <svg class="lg:hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 26 26">
+                <path fill="currentColor" d="M10 .188A9.812 9.812 0 0 0 .187 10A9.812 9.812 0 0 0 10 19.813c2.29 0 4.393-.811 6.063-2.125l.875.875a1.845 1.845 0 0 0 .343 2.156l4.594 4.625c.713.714 1.88.714 2.594 0l.875-.875a1.84 1.84 0 0 0 0-2.594l-4.625-4.594a1.824 1.824 0 0 0-2.157-.312l-.875-.875A9.812 9.812 0 0 0 10 .188zM10 2a8 8 0 1 1 0 16a8 8 0 0 1 0-16zM4.937 7.469a5.446 5.446 0 0 0-.812 2.875a5.46 5.46 0 0 0 5.469 5.469a5.516 5.516 0 0 0 3.156-1a7.166 7.166 0 0 1-.75.03a7.045 7.045 0 0 1-7.063-7.062c0-.104-.005-.208 0-.312z"/>
+            </svg>
+            <span class="max-lg:hidden">Generate</span>
+          </button>
+        </form>
+    </div>
+  </section>
+  <section id="image" class="px-20 max-lg:px-4 py-8">
+    <h2 class="text-center mb-8 text-4xl font-bold" id="title"> </h2>
+    <div id="image-results" class="grid grid-cols-4 max-lg:grid-cols-2 gap-4"></div>
+    <div id="pagination" class="flex justify-center mt-8 gap-2"></div>
+  </section>
+  <div id="custom-alert" class="custom-alert">
+    <h2>Information!</h2>
+    <p>Masukkan kata minimal 3 huruf</p>
+    <button id="alert-close-btn">OK</button>
+  </div>
+
+  <div id="image-modal" class="modal">
+    <span class="close" id="modal-close">&times;</span>
+    <div class="modal-content">
+      <img id="modal-image">
+      <div class="modal-buttons">
+        <button id="modal-close-btn">Close</button>
+        <a id="modal-download-btn" href="#" download>Download</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

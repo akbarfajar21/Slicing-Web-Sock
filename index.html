@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        * {
+            font-family: "Poppins", sans-serif;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .accordion-content {
+         max-height: 0;
+         overflow: hidden;
+         transition: max-height 1s ease;
+        }
+
+        .accordion-content.visible {
+        max-height: 500px; 
+        }
+
+        .toggle-icon {
+        transition: transform 1s ease;
+        }
+
+        .rotate-45 {
+        transform: rotate(45deg);
+        }
+
+        .rotate-90 {
+        transform: rotate(90deg);
+        }
+
+    </style>
+</head>
+
+<body class="bg-white font-sans">
+    <header class="top-0 bg-white border-b fixed w-full border-gray-300">
+        <div class="container flex items-center justify-between py-5 max-xl:px-28 max-lg:px-8 px-52">
+            <img src="https://framerusercontent.com/images/6oIp3PUa8bDBODnrYmpu9Alp0.png" alt="Logo"
+                class="h-8 z-[300]">
+            <div class="flex text-left relative justify-end">
+                <input type="checkbox" id="menu-toggle" class="hidden">
+                <label for="menu-toggle" class="cursor-pointer lg:hidden">
+                    <svg id="menu-icon" class=" items-center top-[26px] right-8 z-50 fixed text-gray-800"
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path
+                            d="M3 5h18a1 1 0 1 0 0-2H3a1 1 0 1 0 0 2zm0 6h18a1 1 0 1 0 0-2H3a1 1 0 1 0 0 2zm0 6h18a1 1 0 1 0 0-2H3a1 1 0 1 0 0 2z" />
+                    </svg>
+                    <svg id="close-icon" class="hidden   fill-current z-50 fixed text-gray-800"
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </label>
+                <nav id="menu"
+                    class="hidden lg:flex flex-col lg:flex-row items-center fixed lg:static top-0 left-0 w-full h-full bg-white lg:bg-transparent border-t lg:border-t-0 border-gray-300 lg:border-gray-0 text-center mt-0 lg:mt-0 z-50">
+                    <button id="close-menu" class="lg:hidden absolute top-[26px] right-8 text-gray-800">
+                        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                    <ul
+                        class="flex flex-col lg:flex-row max-lg:fixed max-lg:top-16 left-1/2 gap-5 max-lg:gap-6 justify">
+                        <li class="w-full"><a href="#"
+                                class="block  py-2 text-gray-800 font-medium hover:text-gray-600">Earn</a></li>
+                        <li class="w-full"><a href="#"
+                                class="block  py-2 text-gray-800 font-medium hover:text-gray-600">Invest</a></li>
+                        <li class="w-full"><a href="#"
+                                class="block  py-2 text-gray-800 font-medium hover:text-gray-600">Send</a></li>
+                        <li class="w-full"><a href="#"
+                                class="block  py-2 text-gray-800 font-medium hover:text-gray-600">About</a></li>
+                        <li class="w-full"><a href="#"
+                                class="block  py-2 text-gray-800 font-medium hover:text-gray-600">Blog</a></li>
+                        <li class="w-full"><a href="#"
+                                class="block  py-2 text-gray-800 font-medium hover:text-gray-600">Help</a></li>
+                        <li class="w-full"><a href="#"
+                                class=" lg:inline-block bg-black text-white font-semibold py-2 px-2  rounded hover:bg-gray-800 ">Download</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+
+
+
+    <main class="flex max-lg:px-5 flex-col justify-center items-center mt-36">
+        <h1 class="text-6xl max-lg:text-4xl font-bold text-black text-center leading-snug">
+            The simplest way<br>to earn interest on<br>your crypto
+        </h1>
+        <p class="text-2xl text-gray-800 text-center mt-5 font-medium max-lg:text-[16px]">
+            Earn, invest, and send money with self-custody.
+        </p>
+        <div class="flex max-lg:flex-col mt-8 max-lg:gap-6 max-lg:items-center w-full justify-center gap-4">
+            <a href="#" class="rounded-lg ">
+                <img src="./Download_on_the_App_Store_Badge.svg.png" class="w-52 max-lg:w-44 max-lg:object-contain "
+                    alt="Apple Icon">
+
+            </a>
+            <a href="#" class="w-fit rounded-lg max-lg:py-1 max-lg:px-2">
+                <img src="./Google_Play_Store_badge_EN.svg.png" class="w-52 max-lg:w-44 max-lg:object-contain"
+                    alt="Google Play Icon">
+
+            </a>
+        </div>
+        <p class="text-xs text-gray-600 text-center mt-5 ">
+            Don't see your country yet? <a class="text-blue-500 text-xs" href="#">Join the waitlist.</a>
+        </p>
+        <div class="mt-5">
+            <img src="https://framerusercontent.com/images/oGLbRhYIncXlQkVust1ZdHZlc.png?scale-down-to=2048" alt="Image"
+                class="mx-auto w-3/5 max-lg:w-full">
+            <p class="text-center text-gray-600  text-xs mt-4">Base APY rates as of February 16th, 2024. APYs are
+                variable.
+            </p>
+        </div>
+        <div class="mt-20 px-64 flex items-center max-lg:flex-col-reverse max-lg:px-32">
+            <div class="flex flex-col text-left mr-10 max-lg:mr0 ">
+                <p class="text-5xl font-bold leading-tight max-lg:text-3xl max-lg:mt-4">Earn up to 10% <br> variable APY
+                    on
+                    <br>
+                    your money
+                </p>
+                <p class="text-1xl mt-5">Earn more interest on your money with USDC, USDT, DAI, and ETH. <br> Base APY
+                    rates as of February 16th, 2024. APYs are variable.</p>
+                <div class="mt-4 flex items-center gap-4 ">
+                    <a href="#"
+                        class="bg-black text-white font-semibold py-3 px-4 text-xs rounded-xl hover:bg-gray-800 ">Download
+                        the app</a>
+                    <a href="#" class="text-black  underline     text-[14px]">Learn more</a>
+                </div>
+            </div>
+            <img class="ml-1" src="https://framerusercontent.com/images/RXlzQDoIjCKknbYlXzIWmB5cf5w.jpg" alt="Image"
+                style="width: 500px;">
+        </div>
+        <div class="mt-20 px-56 flex max-lg:flex-col max-lg:px-10 items-center">
+            <img class="mr-10 w-[500px]"
+                src="https://framerusercontent.com/images/pqjMB2GRFh391Z5Ec9Tu9quuyF0.jpg?scale-down-to=1024"
+                alt="Image">
+            <div class="flex flex-col  text-left">
+                <p class="text-5xl max-lg:text-3xl max-lg:mt-6 font-semibold">Invest in Bitcoin, <br> Ethereum and 100+ <br>
+
+                    more, safely
+                </p>
+                <p class="mt-5 font-normal">Buy and sell BTC, ETH, USDT, USDC, DAI, and 100+ more.</p>
+                <div class="mt-4 flex items-center gap-4 ">
+                    <a href="#"
+                        class="bg-black text-white font-semibold py-3 px-4 text-xs rounded-xl hover:bg-gray-800 ">Download
+                        the app</a>
+                    <a href="#" class="text-black  underline     text-[14px]">Learn more</a>
+                </div>
+            </div>
+        </div>
+        <div class="mt-20 flex max-lg:flex-col-reverse max-lg:px-10 items-center">
+            <div class="flex flex-col text-left mr-10">
+                <p class="text-5xl  font-semibold max-lg:text-3xl max-lg:mt-4">Send money <br> instantly, for free</p>
+                <p class="mt-5">Pay anyone instantly in 60+ countries for free.</p>
+                <div class="mt-4 flex items-center gap-4 ">
+                    <a href="#"
+                        class="bg-black text-white font-semibold py-3 px-4 text-xs rounded-xl hover:bg-gray-800 ">Download
+                        the app</a>
+                    <a href="#" class="text-black  underline text-[14px]">Learn more</a>
+                </div>
+            </div>
+            <img class="ml-1 w-[500px]"
+                src="https://framerusercontent.com/images/s9YfZVw5n0wJ3lllYVBleQ8VnGc.jpg?scale-down-to=1024"
+                alt="Image">
+        </div>
+        <div class="mt-20 flex justify-center">
+            <p class="text-6xl font-semibold text-center max-lg:text-3xl max-lg:px-8">Your money is safer on Sock</p>
+        </div>
+        <div class="mt-20 flex justify-center max-lg:flex-col gap-7 space-x-4">
+            <div class="flex flex-col max-lg:gap-3 items-center">
+                <img src="https://framerusercontent.com/images/vbeXQX8xPofOiR1HZ7xlk9bqcSQ.png?scale-down-to=512"
+                    alt="Image 1" class="w-[300px]">
+                <p class=" text-xl font-semibold text-center mt-2  ">We never touch your <br> money
+                </p>
+                <p class=" text-center max-lg:text-[14px]">Sock is self-custodial, so your <br> money is always safe.
+                </p>
+
+            </div>
+            <div class="flex flex-col max-lg:gap-3 items-center">
+                <img src="https://framerusercontent.com/images/18v4mW9XgW73mYvUheMQTIh1tU.png?scale-down-to=512"
+                    alt="Image 2" class="w-[300px]">
+                <p class="text-xl font-semibold text-center mt-2 ">Convert cash to <br> crypto</p>
+                <p class="text-center">Move your money in and out of <br> crypto in minutes.</p>
+            </div>
+            <div class="flex flex-col max-lg:gap-3 items-center">
+                <img src="https://framerusercontent.com/images/qwVtXWQrrD55VduWkGWMnabTs.png?scale-down-to=512"
+                    alt="Image 3" class="w-[300px]">
+                <p class="text-xl font-bold text-center mt-2">Your funds are safe <br> and secure</p>
+                <p class="text-center">Industry leading security for <br> peace of mind.</p>
+            </div>
+        </div>
+        <div class="mt-20 flex justify-center">
+            <p class="text-6xl font-semibold max-lg:text-3xl text-center">Frequently asked questions</p>
+        </div>
+        <div class="mt-20 w-full max-w-3xl">
+            <!-- Question 1 -->
+            <div class="border-t border-gray-300">
+              <input type="checkbox" id="question1" class="hidden">
+              <label for="question1" class="block cursor-pointer py-3 px-5 max-lg:px-0 border-b border-gray-300 hover:bg-gray-100">
+                <div class="flex justify-between items-center">
+                  <span class="text-[16px] font-medium">How is Sock different from CoinBase, Binance etc?</span>
+                  <span class="text-xl toggle-icon">+</span>
+                </div>
+              </label>
+              <div class="accordion-content overflow-hidden max-h-0 transition-max-height duration-500 hidden">
+                <p class="text-gray-800 py-3 pm-2 px-5">Sock is entirely self-custodial, meaning we never touch your
+                  funds, they are secured on the blockchain, and can only be accessed by you. Centralized
+                  exchanges like Coinbase and Binance hold custody of your money, and can be perceived as an
+                  additional layer of risk. Additionally, most centralized exchanges will charge fees for earning
+                  that are opaque, and may appear to earn lower vAPYs.</p>
+              </div>
+            </div>
+            
+            <!-- Question 2 -->
+            <div class="border-t border-gray-300">
+              <input type="checkbox" id="question2" class="hidden">
+              <label for="question2" class="block cursor-pointer py-3 px-5 border-b max-lg:px-0 border-gray-300 hover:bg-gray-100">
+                <div class="flex justify-between items-center">
+                  <span class="text-[16px] font-medium">Is Sock Safe? What does non-custodial / self-custodial mean?</span>
+                  <span class="text-xl toggle-icon">+</span>
+                </div>
+              </label>
+              <div class="accordion-content overflow-hidden max-h-0 transition-max-height duration-500 hidden">
+                <p class="text-gray-800 py-3 px-5">Sock uses industry-leading security for peace of mind.
+                  Non-custody means that Sock never touches or controls your money. Your funds are secured on the
+                  blockchain, and can only be accessed and controlled by you.</p>
+              </div>
+            </div>
+          
+            <!-- Question 3 -->
+            <div class="border-t border-gray-300">
+              <input type="checkbox" id="question3" class="hidden">
+              <label for="question3" class="block cursor-pointer max-lg:px-0 py-3 px-5 border-b border-gray-300 hover:bg-gray-100">
+                <div class="flex justify-between items-center">
+                  <span class="text-[16px] font-medium">Does Sock re-invest or loan out my funds?</span>
+                  <span class="text-xl toggle-icon">+</span>
+                </div>
+              </label>
+              <div class="accordion-content overflow-hidden max-h-0 transition-max-height duration-500 hidden">
+                <p class="text-gray-800 py-3 px-5">No, sock never touches customer funds. Unlike traditional banks
+                  or other investing apps, your money stays in your account and is always available to you. Sock
+                  is a non-custodial investment app.</p>
+              </div>
+            </div>
+          
+            <!-- Question 4 -->
+            <div class="border-t border-gray-300">
+              <input type="checkbox" id="question4" class="hidden">
+              <label for="question4" class="block cursor-pointer max-lg:px-0 py-3 px-5 border-b border-gray-300 hover:bg-gray-100">
+                <div class="flex justify-between items-center">
+                  <span class="text-[16px] font-medium">How are swaps fee-free?</span>
+                  <span class="text-xl toggle-icon">+</span>
+                </div>
+              </label>
+              <div class="accordion-content overflow-hidden max-h-0 transition-max-height duration-500 hidden">
+                <p class="text-gray-800 py-3 px-5">Sock operates the Arbitrum blockchain network. Arbitrum is
+                  lightning fast and inexpensive to transact on. Sock sponsors the cost of any network fees,
+                  making it free for you to make swaps. Excluding Bitcoin.</p>
+              </div>
+            </div>
+          
+            <!-- Question 5 -->
+            <div class="border-t border-gray-300">
+              <input type="checkbox" id="question5" class="hidden">
+              <label for="question5" class="block cursor-pointer max-lg:px-0 py-3 px-5 border-b border-gray-300 hover:bg-gray-100">
+                <div class="flex justify-between items-center">
+                  <span class="text-[16px] font-medium">How can I send money for free?</span>
+                  <span class="text-xl toggle-icon">+</span>
+                </div>
+              </label>
+              <div class="accordion-content overflow-hidden max-h-0 transition-max-height duration-500 hidden">
+                <p class="text-gray-800 py-3 px-5">Sock uses blockchain technology to instantly send crypto to any
+                  address on the Arbitrum network. Because Arbitrum is a fast and inexpensive network to transact
+                  on, Sock sponsors the cost of any network fees, making it free for you to send money.</p>
+              </div>
+            </div>
+          
+            <!-- Question 6 -->
+            <div class="border-t border-gray-300">
+              <input type="checkbox" id="question6" class="hidden">
+              <label for="question6" class="block cursor-pointer max-lg:px-0 py-3 px-5 border-b border-gray-300 hover:bg-gray-100">
+                <div class="flex justify-between items-center">
+                  <span class="text-[16px] font-medium">Where is Sock available?</span>
+                  <span class="text-xl toggle-icon">+</span>
+                </div>
+              </label>
+              <div class="accordion-content overflow-hidden max-h-0 transition-max-height duration-500 hidden">
+                <p class="text-gray-800 py-3 px-5">Sock is available in 60+ countries worldwide on iOS and Android
+                  platforms. Supported countries include Argentina, Australia, Bahamas, Barbados, Bolivia, Brazil,
+                  Canada, Chile, Colombia, Costa Rica, Dominican Republic, Ecuador, El Salvador, France, Germany,
+                  Guatemala, Honduras, Hong Kong, India, Indonesia, Ireland, Italy, Jamaica, New Zealand,
+                  Nicaragua, Panama, Paraguay, Peru, Philippines, Portugal, Scotland, Singapore, Spain,
+                  Switzerland, Taiwan, Thailand, United Kingdom, United States, Uruguay, Vietnam.
+          
+                  Don't see your country on the list? Add your email to the waitlist at https://sock.app/waitlist
+                  to show your interest in Sock and be notified when we launch in your country.</p>
+              </div>
+            </div>
+          
+            <!-- Question 7 -->
+            <div class="border-t border-gray-300">
+              <input type="checkbox" id="question7" class="hidden">
+              <label for="question7" class="block cursor-pointer max-lg:px-0 py-3 px-5 border-b border-gray-300 hover:bg-gray-100">
+                <div class="flex justify-between items-center">
+                  <span class="text-[16px] font-medium">What networks does Sock support?</span>
+                  <span class="text-xl toggle-icon">+</span>
+                </div>
+              </label>
+              <div class="accordion-content overflow-hidden max-h-0 transition-max-height duration-500 hidden">
+                <p class="text-gray-800 py-3 px-5">Sock currently runs on the Arbitrum blockchain network and the
+                  Bitcoin blockchain network. Sock supports buying, selling, swapping, sending, and receiving
+                  crypto or tokens on Arbitrum or Bitcoin.</p>
+              </div>
+            </div>
+          
+            <!-- Question 8 -->
+            <div class="border-t border-gray-300">
+              <input type="checkbox" id="question8" class="hidden">
+              <label for="question8" class="block cursor-pointer max-lg:px-0 py-3 px-5 border-b border-gray-300 hover:bg-gray-100">
+                <div class="flex justify-between items-center">
+                  <span class="text-[16px] font-medium">How does Sock make money?</span>
+                  <span class="text-xl toggle-icon">+</span>
+                </div>
+              </label>
+              <div class="accordion-content overflow-hidden max-h-0 transition-max-height duration-500 hidden">
+                <p class="text-gray-800 py-3 px-5">Sock takes a small transaction fee (.85%) on all investing
+                  trades (swaps).</p>
+              </div>
+            </div>
+          </div>
+          
+
+        <div class="border-t border-gray-300">
+            <input type="checkbox" id="question4" class="hidden">
+            <div class="flex justify-between items-center">
+                <span class="text-6xl mt-20 font-semibold max-lg:text-4xl">Investors</span>
+            </div>
+        </div>
+
+        
+        <div class="grid grid-cols-3 gap-8 items-center max-lg:grid-cols-1 max-lg:gap-6 mt-10 justify-center">
+
+
+            <div class="flex flex-col items-center">
+                <img src="https://framerusercontent.com/images/QeJFKDJn8ih0lz6tfIPwCt0U50.png?scale-down-to=512"
+                    alt="Investor Logo 1" style="width: 190px;">
+            </div>
+            <div class="flex flex-col items-center">
+                <img src="https://framerusercontent.com/images/UxVsV4Mfkl7UlD9WsSb94jyNhx4.png?scale-down-to=512"
+                    alt="Investor Logo 2" style="width: 190px;">
+            </div>
+            <div class="flex flex-col items-center">
+                <img src="https://framerusercontent.com/images/x8CvkczPb7WyoN3SDCyDtLV11E.png?scale-down-to=512"
+                    alt="Investor Logo 3" style="width: 190px;">
+            </div>
+
+
+
+
+            <div class="flex flex-col items-center">
+                <img src="https://framerusercontent.com/images/04SpE5nAqU05ZZOQHVhGApXYfLU.png?scale-down-to=512"
+                    alt="Investor Logo 4" style="width: 150px;">
+            </div>
+            <div class="flex flex-col items-center">
+                <img src="https://framerusercontent.com/images/iZiXnw4atvNlxwmh5mfJswe6ICM.png?scale-down-to=512"
+                    alt="Investor Logo 5" style="width: 150px;">
+            </div>
+            <div class="flex flex-col items-center">
+                <img src="https://framerusercontent.com/images/at21Enxj0yxG9m92CXSgW7wfNQ8.png?scale-down-to=512"
+                    alt="Investor Logo 6" style="width: 110px;">
+            </div>
+
+
+        </div>
+        
+        <div class="bg-zinc-100 py-20 mt-40 w-full max-w-[800px] rounded-2xl">
+            <div class="container  mx-auto text-center">
+                <h2 class="text-4xl font-semibold max-lg:text-3xl mb-12">Download the App Today</h2>
+                <div class="flex gap-4 justify-center max-lg:items-center max-lg:gap-8  max-lg:flex-col ">
+
+
+                    <img src="./Download_on_the_App_Store_Badge.svg.png"
+                        class="items-center justify-center max-md:w-2/5 max-lg:w-1/5 w-1/5 object-contain  rounded-lg"
+                        alt="Apple Icon">
+
+                    <img src="./Google_Play_Store_badge_EN.svg.png"
+                        class="w-1/5 object-contain  max-md:w-2/4 max-lg:w-1/4 flex items-center justify-center  rounded-lg"
+                        alt="Google Play Icon">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-zinc-100 text-black py-10 mt-20">
+        <div class="container  mx-auto flex justify-center  flex-col items-center">
+            <div class="flex max-lg:flex-col items-center gap-10">
+                <p class="font-semibold text-2xl">Follow our journey</p>
+                <div class="flex items-center gap-10">
+                    <a href="https://twitter.com" class="flex gap-2 "><img src="twitter_icon.png" alt="Twitter"
+                            class="h-5">Twitter </a>
+                    <a href="https://linkedin.com" class=" flex gap-2"><img src="linkedin_icon.png" alt="LinkedIn"
+                            class="h-5">Linked</a>
+                    <a href="https://reddit.com" class=" flex gap-2"><img src="reddit_icon.png" alt="Reddit"
+                            class="h-5">Reddit</a>
+                </div>
+            </div>
+            <div
+                class="flex gap-8 max-lg:gap-6 max-lg:w-1/2 flex-wrap text-center justify-center items-center mt-16 text-xs">
+                <a href="#" class="text-blue-500 ">Contact Us</a>
+                <a href="#" class="text-blue-500 ">Terms Of Use</a>
+                <a href="#" class="text-blue-500 ">Privacy Policy</a>
+                <p>Copyright &copy; CryptoPlatform.</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
